@@ -8,7 +8,7 @@
 import UIKit
 
 class DemoSelectionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, DemoSelectionInteractionOutput {
-
+    
     @IBOutlet var historyButton: UIBarButtonItem?
     @IBOutlet var tableView: UITableView? {
         didSet {
@@ -17,11 +17,11 @@ class DemoSelectionViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     var interaction: DemoSelectionInteraction?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = StyleColor.lightGray
-        self.tableView?.backgroundColor = UIColor.clear
+        self.view.backgroundColor = StyleColor.blue
+        self.tableView?.backgroundColor = UIColor.lightGray
         self.title = "Thunderboard"
         self.tb_removeTitleFromBackButton()
     }
@@ -47,7 +47,7 @@ class DemoSelectionViewController: UIViewController, UITableViewDataSource, UITa
         super.viewDidAppear(animated)
         interaction?.resetDemoConfiguration()
     }
-
+    
     @IBAction func historyButtonPressed() {
         interaction?.showHistory()
     }
@@ -63,7 +63,7 @@ class DemoSelectionViewController: UIViewController, UITableViewDataSource, UITa
         case .io:
             cell.demoName.tb_setText("I/O", style: StyleText.demoTitle)
             cell.demoImage.image = UIImage(named: "icn_demo_io_unsel")
-
+            
         case .motion:
             cell.demoName.tb_setText("Motion", style: StyleText.demoTitle)
             cell.demoImage.image = UIImage(named: "icn_demo_motion_unsel")
@@ -73,18 +73,18 @@ class DemoSelectionViewController: UIViewController, UITableViewDataSource, UITa
             cell.demoImage.image = UIImage(named: "icn_demo_environmental_unsel")
         }
         
-        cell.demoSpinner.lineColor = StyleColor.terbiumGreen
+        cell.demoSpinner.lineColor = StyleColor.yellow
         cell.demoSpinner.trackColor = StyleColor.lightGray
         
         cell.accessoryType = .none
         cell.backgroundColor = UIColor.clear
         cell.selectedBackgroundView = UIView()
-        cell.selectedBackgroundView?.backgroundColor = StyleColor.mediumGreen
+        cell.selectedBackgroundView?.backgroundColor = StyleColor.blue
         
         let configuring = (demo == self.interaction?.configuringDemo)
         (configuring) ? cell.demoSpinner.startAnimating(StyleAnimations.spinnerDuration) : cell.demoSpinner.stopAnimating()
     }
-
+    
     //MARK:- UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

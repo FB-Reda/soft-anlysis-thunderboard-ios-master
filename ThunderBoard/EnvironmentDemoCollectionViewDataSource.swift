@@ -30,51 +30,51 @@ class EnvironmentDemoCollectionViewDataSource : NSObject {
     let activeViewModels: Observable<[EnvironmentDemoViewModel]>
     
     fileprivate static let capabilityOrder: [DeviceCapability] = [
-        .temperature,       .humidity,
+        //        .temperature,       .humidity,
         .ambientLight,      .uvIndex,
-        .airPressure,       .soundLevel,
-        .airQualityCO2,     .airQualityVOC,
-        .hallEffectFieldStrength, .hallEffectState
+        //        .airPressure,       .soundLevel,
+        .airQualityCO2,     .airQualityVOC
+        //.hallEffectFieldStrength, .hallEffectState
     ]
     
     fileprivate static let dataMappers: [DeviceCapability : DataMapperFunction] = [
-        .temperature : { data in
-            
-            let title = "TEMPERATURE"
-            if let temperature = data.temperature {
-
-                let color = UIColor.colorForTemperature(temperature)
-                
-                let settings = ThunderboardSettings()
-                var value = ""
-                switch settings.temperature {
-                case .fahrenheit:
-                    let temperatureInWholeDegrees = Int(temperature.tb_FahrenheitValue)
-                    value = "\(temperatureInWholeDegrees)°F"
-                case .celsius:
-                    let temperature = temperature.tb_roundToTenths()
-                    value = "\(temperature)°C"
-                }
-                
-                return EnvironmentCellData(name: title, value: value, imageName: "icn_demo_temp", imageBackgroundColor: color, power: .na)
-            }
-            
-            return EnvironmentCellData(name: title, value: String.tb_placeholderText(), imageName: "icn_demo_temp_inactive", imageBackgroundColor: nil, power: .na)
-        },
-        
-        .humidity : { data in
-            
-            let title = "HUMIDITY"
-            if let humidity = data.humidity {
-
-                let color = UIColor.colorForHumidity(humidity)
-                let value = "\(Int(humidity))%"
-                
-                return EnvironmentCellData(name: title, value: value, imageName: "icn_demo_humidity", imageBackgroundColor: color, power: .na)
-            }
-            
-            return EnvironmentCellData(name: title, value: String.tb_placeholderText(), imageName: "icn_demo_humidity_inactive", imageBackgroundColor: nil, power: .na)
-        },
+        //        .temperature : { data in
+        //
+        //            let title = "TEMPERATURE"
+        //            if let temperature = data.temperature {
+        //
+        //                let color = UIColor.colorForTemperature(temperature)
+        //
+        //                let settings = ThunderboardSettings()
+        //                var value = ""
+        //                switch settings.temperature {
+        //                case .fahrenheit:
+        //                    let temperatureInWholeDegrees = Int(temperature.tb_FahrenheitValue)
+        //                    value = "\(temperatureInWholeDegrees)°F"
+        //                case .celsius:
+        //                    let temperature = temperature.tb_roundToTenths()
+        //                    value = "\(temperature)°C"
+        //                }
+        //
+        //                return EnvironmentCellData(name: title, value: value, imageName: "icn_demo_temp", imageBackgroundColor: color, power: .na)
+        //            }
+        //
+        //            return EnvironmentCellData(name: title, value: String.tb_placeholderText(), imageName: "icn_demo_temp_inactive", imageBackgroundColor: nil, power: .na)
+        //        },
+        //
+        //        .humidity : { data in
+        //
+        //            let title = "HUMIDITY"
+        //            if let humidity = data.humidity {
+        //
+        //                let color = UIColor.colorForHumidity(humidity)
+        //                let value = "\(Int(humidity))%"
+        //
+        //                return EnvironmentCellData(name: title, value: value, imageName: "icn_demo_humidity", imageBackgroundColor: color, power: .na)
+        //            }
+        //
+        //            return EnvironmentCellData(name: title, value: String.tb_placeholderText(), imageName: "icn_demo_humidity_inactive", imageBackgroundColor: nil, power: .na)
+        //        },
         
         .ambientLight : { data in
             
@@ -110,10 +110,10 @@ class EnvironmentDemoCollectionViewDataSource : NSObject {
                 if co2.enabled, let co2Value = co2.value {
                     let color = UIColor.colorForCO2(co2Value)
                     let value = "\(Int(co2Value)) ppm"
-
+                    
                     return EnvironmentCellData(name: title, value: value, imageName: "ic_carbon_dioxide", imageBackgroundColor: color, power: .on)
                 }
-
+                
                 return EnvironmentCellData(name: title, value: "OFF", imageName: "ic_carbon_dioxide_inactive", imageBackgroundColor: nil, power: .off)
             }
             
@@ -129,71 +129,71 @@ class EnvironmentDemoCollectionViewDataSource : NSObject {
                     
                     return EnvironmentCellData(name: title, value: value, imageName: "ic_voc", imageBackgroundColor: color, power: .on)
                 }
-
+                
                 return EnvironmentCellData(name: title, value: "OFF", imageName: "ic_voc_inactive", imageBackgroundColor: nil, power: .off)
             }
             
             return EnvironmentCellData(name: title, value: String.tb_placeholderText(), imageName: "ic_voc_inactive", imageBackgroundColor: nil, power: .na)
         },
         
-        .airPressure : { data in
-            let title = "AIR PRESSURE"
-            if let pressure = data.pressure {
-                
-                let color = UIColor.colorForAtmosphericPressure(pressure)
-                let value = "\(Int(pressure)) mbar"
-                
-                return EnvironmentCellData(name: title, value: value, imageName: "ic_atmospheric_pressure", imageBackgroundColor: color, power: .na)
-            }
-            
-            return EnvironmentCellData(name: title, value: String.tb_placeholderText(), imageName: "ic_atmospheric_pressure_inactive", imageBackgroundColor: nil, power: .na)
-        },
-        
-        .soundLevel : { data in
-            let title = "SOUND LEVEL"
-            if let soundLevel = data.sound {
-                
-                let color = UIColor.colorForSoundLevel(soundLevel)
-                let value = "\(Int(soundLevel)) dB"
-                
-                return EnvironmentCellData(name: title, value: value, imageName: "ic_sound_level", imageBackgroundColor: color, power: .na)
-            }
-            
-            return EnvironmentCellData(name: title, value: String.tb_placeholderText(), imageName: "ic_sound_level_inactive", imageBackgroundColor: nil, power: .na)
-        },
-
-        .hallEffectState : { data in
-            let title = "DOOR STATE"
-            if let hallEffectState = data.hallEffectState {
-
-                let color = UIColor.colorForHallEffectState(hallEffectState)
-                let value: String
-                switch hallEffectState {
-                case .closed:
-                    value = "Closed"
-                case .open:
-                    value = "Opened"
-                case .tamper:
-                    value = "Tampered\nTap to Reset"
-                }
-                let imageName = UIImage.imageNameForHallEffectState(hallEffectState)
-                return EnvironmentCellData(name: title, value: value, imageName: imageName, imageBackgroundColor: color, power: .na)
-            }
-
-            return EnvironmentCellData(name: title, value: String.tb_placeholderText(), imageName: "ic_atmospheric_pressure", imageBackgroundColor: nil, power: .na)
-        },
-
-        .hallEffectFieldStrength : { data in
-            let title = "MAGNETIC FIELD"
-            if let hallEffectFieldStrength = data.hallEffectFieldStrength {
-
-                let color = UIColor.colorForHallEffectFieldStrength(mT: hallEffectFieldStrength)
-                let value = "\(hallEffectFieldStrength) uT"
-                return EnvironmentCellData(name: title, value: value, imageName: "icn_demo_magnetic_field", imageBackgroundColor: color, power: .na)
-            }
-
-            return EnvironmentCellData(name: title, value: String.tb_placeholderText(), imageName: "icn_demo_magnetic_field", imageBackgroundColor: nil, power: .na)
-        },
+        //        .airPressure : { data in
+        //            let title = "AIR PRESSURE"
+        //            if let pressure = data.pressure {
+        //
+        //                let color = UIColor.colorForAtmosphericPressure(pressure)
+        //                let value = "\(Int(pressure)) mbar"
+        //
+        //                return EnvironmentCellData(name: title, value: value, imageName: "ic_atmospheric_pressure", imageBackgroundColor: color, power: .na)
+        //            }
+        //
+        //            return EnvironmentCellData(name: title, value: String.tb_placeholderText(), imageName: "ic_atmospheric_pressure_inactive", imageBackgroundColor: nil, power: .na)
+        //        },
+        //
+        //        .soundLevel : { data in
+        //            let title = "SOUND LEVEL"
+        //            if let soundLevel = data.sound {
+        //
+        //                let color = UIColor.colorForSoundLevel(soundLevel)
+        //                let value = "\(Int(soundLevel)) dB"
+        //
+        //                return EnvironmentCellData(name: title, value: value, imageName: "ic_sound_level", imageBackgroundColor: color, power: .na)
+        //            }
+        //
+        //            return EnvironmentCellData(name: title, value: String.tb_placeholderText(), imageName: "ic_sound_level_inactive", imageBackgroundColor: nil, power: .na)
+        //        },
+        //
+        //        .hallEffectState : { data in
+        //            let title = "DOOR STATE"
+        //            if let hallEffectState = data.hallEffectState {
+        //
+        //                let color = UIColor.colorForHallEffectState(hallEffectState)
+        //                let value: String
+        //                switch hallEffectState {
+        //                case .closed:
+        //                    value = "Closed"
+        //                case .open:
+        //                    value = "Opened"
+        //                case .tamper:
+        //                    value = "Tampered\nTap to Reset"
+        //                }
+        //                let imageName = UIImage.imageNameForHallEffectState(hallEffectState)
+        //                return EnvironmentCellData(name: title, value: value, imageName: imageName, imageBackgroundColor: color, power: .na)
+        //            }
+        //
+        //            return EnvironmentCellData(name: title, value: String.tb_placeholderText(), imageName: "ic_atmospheric_pressure", imageBackgroundColor: nil, power: .na)
+        //        },
+        //
+        //        .hallEffectFieldStrength : { data in
+        //            let title = "MAGNETIC FIELD"
+        //            if let hallEffectFieldStrength = data.hallEffectFieldStrength {
+        //
+        //                let color = UIColor.colorForHallEffectFieldStrength(mT: hallEffectFieldStrength)
+        //                let value = "\(hallEffectFieldStrength) uT"
+        //                return EnvironmentCellData(name: title, value: value, imageName: "icn_demo_magnetic_field", imageBackgroundColor: color, power: .na)
+        //            }
+        //
+        //            return EnvironmentCellData(name: title, value: String.tb_placeholderText(), imageName: "icn_demo_magnetic_field", imageBackgroundColor: nil, power: .na)
+        //        },
     ]
     
     var currentHallEffectState: HallEffectState? = nil
@@ -235,3 +235,4 @@ class EnvironmentDemoCollectionViewDataSource : NSObject {
         }
     }
 }
+

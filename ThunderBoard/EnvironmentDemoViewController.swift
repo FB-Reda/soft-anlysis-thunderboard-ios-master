@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 class EnvironmentDemoViewController: DemoViewController, EnvironmentDemoInteractionOutput, UICollectionViewDelegate {
-
+    
     @IBOutlet var collectionView: UICollectionView!
     var interaction: EnvironmentDemoInteraction?
     fileprivate var dataSource = EnvironmentDemoCollectionViewDataSource()
@@ -22,13 +22,13 @@ class EnvironmentDemoViewController: DemoViewController, EnvironmentDemoInteract
         self.title = "Environment"
         
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
-        collectionView.backgroundColor = UIColor.clear
+        collectionView.backgroundColor = UIColor.lightGray
         collectionView.delegate = self
         collectionView.register(EnvironmentDemoCollectionViewCell.self, forCellWithReuseIdentifier: EnvironmentDemoCollectionViewCell.cellIdentifier)
         
         dataSource.activeViewModels.debounce(0.5, scheduler: MainScheduler.instance).bind(to: collectionView.rx.items(cellIdentifier: EnvironmentDemoCollectionViewCell.cellIdentifier, cellType: EnvironmentDemoCollectionViewCell.self)){(_, element, cell) in
             cell.configureCell(with: element)
-        }.disposed(by: disposeBag)
+            }.disposed(by: disposeBag)
         
         collectionView.rx.itemSelected.withLatestFrom(dataSource.activeViewModels).debug().subscribe(onNext: { [weak self] viewModels in
             guard let strongSelf = self,
@@ -54,8 +54,9 @@ class EnvironmentDemoViewController: DemoViewController, EnvironmentDemoInteract
     }
     
     // MARK: - EnvironmentDemoInteractionOutput
-
+    
     func updatedEnvironmentData(_ data: EnvironmentData, capabilities: Set<DeviceCapability>) {
         dataSource.updateData(data, capabilities: capabilities)
     }
 }
+

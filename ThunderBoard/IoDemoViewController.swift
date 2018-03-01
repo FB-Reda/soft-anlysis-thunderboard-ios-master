@@ -21,10 +21,10 @@ class IoDemoViewController: DemoViewController, IoDemoInteractionOutput {
     
     @IBOutlet weak var lightsLabel: StyledLabel!
     @IBOutlet weak var lightsView: UIView!
-
+    
     @IBOutlet weak var light1Button: UIButton!
     @IBOutlet weak var light1OnOffLabel: StyledLabel!
-
+    
     @IBOutlet weak var light2Button: UIButton!
     @IBOutlet weak var light2OnOffLabel: StyledLabel!
     
@@ -50,7 +50,7 @@ class IoDemoViewController: DemoViewController, IoDemoInteractionOutput {
     let brightnessString = "BRIGHTNESS"
     let switchesString   = "SWITCHES"
     let lightsString     = "LIGHTS"
-
+    
     struct ButtonImageNames {
         static let Off      = "btn_io_light_off"
         static let Red      = "btn_io_light_red_on"
@@ -60,9 +60,9 @@ class IoDemoViewController: DemoViewController, IoDemoInteractionOutput {
     
     let switchOnImage  = "icn_io_switch_on"
     let switchOffImage = "icn_io_switch_off"
-
+    
     var interaction: IoDemoInteraction?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAppearance()
@@ -142,7 +142,7 @@ class IoDemoViewController: DemoViewController, IoDemoInteractionOutput {
     
     fileprivate func showDigital(_ index: Int, on: Bool, color: LedStaticColor? = nil) {
         log.debug("showLedState \(index) \(on)")
-
+        
         let buttons: [UIButton] = [light1Button, light2Button, rgbButton!]
         let labels: [StyledLabel] = [light1OnOffLabel, light2OnOffLabel, rgbStateLabel!]
         
@@ -189,7 +189,7 @@ class IoDemoViewController: DemoViewController, IoDemoInteractionOutput {
         colorSlider?.minimumTrackTintColor = trackColor
         colorSlider?.maximumTrackTintColor = trackColor
         
-
+        
         // Instead of using brightness, we adjust opacity on the views to simulate brightness
         let imageColor = UIColor(hue: hue, saturation: 1.0, brightness: 1.0, alpha: brightness)
         rgbLedViews.forEach({ $0.backgroundColor = on ? imageColor : StyleColor.gray })
@@ -198,7 +198,7 @@ class IoDemoViewController: DemoViewController, IoDemoInteractionOutput {
     func disableRgb() {
         rgbLightsView?.removeFromSuperview()
     }
-
+    
     //MARK: - Internal
     
     fileprivate func colorForSliderValues() -> LedRgb? {
@@ -222,7 +222,7 @@ class IoDemoViewController: DemoViewController, IoDemoInteractionOutput {
         setupLightsSectionAppearance()
         setupRgbSectionAppearance()
     }
-
+    
     fileprivate func setupSwitchesSectionAppearance() {
         switchesLabel.tb_setText(switchesString, style: StyleText.header2)
         switchesView.backgroundColor = StyleColor.white
@@ -242,7 +242,7 @@ class IoDemoViewController: DemoViewController, IoDemoInteractionOutput {
     }
     
     fileprivate func setupRgbSectionAppearance() {
-        rgbLightsView?.backgroundColor = StyleColor.white
+        rgbLightsView?.backgroundColor = StyleColor.brightGreen
         rgbLightsView?.tb_applyCommonRoundedCornerWithShadowStyle()
         colorHueView?.tb_applyRoundedCorner(1)
         
@@ -266,7 +266,7 @@ class IoDemoViewController: DemoViewController, IoDemoInteractionOutput {
         
         brightnessNegativeLabel?.tb_setText("-", style: StyleText.demoStatus)
         brightnessPositiveLabel?.tb_setText("+", style: StyleText.demoStatus)
-
+        
         rgbLedViews.forEach({
             $0.backgroundColor = StyleColor.lightGray
             $0.tb_applyRoundedCorner(Float($0.frame.size.width/2))
@@ -300,4 +300,5 @@ extension UISlider {
         self.sendActions(for: UIControlEvents.valueChanged)
     }
 }
+
 

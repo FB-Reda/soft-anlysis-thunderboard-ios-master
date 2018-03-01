@@ -43,7 +43,7 @@ class MotionDemoViewController : DemoViewController, MotionDemoInteractionOutput
         // no-op - implemented in subclasses to account for model orientation deltas
         return motionView.modelIdentity
     }
-
+    
     //MARK: - MotionDemoInteractionOutput
     
     func updateOrientation(_ orientation: ThunderboardInclination) {
@@ -106,10 +106,10 @@ class MotionDemoViewController : DemoViewController, MotionDemoInteractionOutput
             // Call dismiss on self because calling it on UIAlertController does not produce a completion call
             self.dismiss(animated: true, completion: {
                 let alertController = UIAlertController(title: "Calibration successful", message: nil, preferredStyle: .alert)
-
+                
                 let cancelAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
                 alertController.addAction(cancelAction)
-
+                
                 self.present(alertController, animated: true, completion: nil)
             })
             self.calibrationAlert = nil
@@ -139,7 +139,7 @@ class MotionDemoViewController : DemoViewController, MotionDemoInteractionOutput
         self.motionView.rpmValueLabel?.text = "rpm"
         self.motionView.totalRpmValueLabel?.text = "total revolutions"
     }
-
+    
     fileprivate func setupWheel() {
         let diameter = interaction.wheelDiameter()
         self.updateWheel(diameter)
@@ -161,3 +161,4 @@ class MotionDemoViewController : DemoViewController, MotionDemoInteractionOutput
         }
     }
 }
+
