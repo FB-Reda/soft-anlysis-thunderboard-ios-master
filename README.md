@@ -1,4 +1,4 @@
-# ThunderBoard
+# HealthTrax - Thunderboard
 
 ThunderBoard is an app for demonstrating the capabilities of the ThunderBoard-React sensor board. It includes Motion, Environment, and I/O demos. ThunderBoard is a native iOS app written in Swift 2.0.
 
