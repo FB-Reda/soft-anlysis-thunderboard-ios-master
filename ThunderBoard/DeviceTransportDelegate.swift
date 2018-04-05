@@ -1,6 +1,6 @@
 //
 //  DeviceTransportDelegate.swift
-//  Thunderboard
+//  HealthTrax
 //
 //  Copyright © 2016 Silicon Labs. All rights reserved.
 //
