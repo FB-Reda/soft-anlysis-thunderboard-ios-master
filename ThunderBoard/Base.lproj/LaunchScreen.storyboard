@@ -22,20 +22,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo_splash_healthtrax" translatesAutoresizingMaskIntoConstraints="NO" id="ZEW-2e-u9x">
-                                <rect key="frame" x="90.5" y="201" width="194" height="198"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_splash_healthtrax" translatesAutoresizingMaskIntoConstraints="NO" id="ZEW-2e-u9x">
+                                <rect key="frame" x="104" y="250" width="166" height="166"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.63137254901960782" green="0.72549019607843135" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ZEW-2e-u9x" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" multiplier="0.9" id="Nt9-wX-3UQ"/>
+                            <constraint firstItem="ZEW-2e-u9x" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" multiplier="0.9" constant="32.849999999999966" id="Nt9-wX-3UQ"/>
                             <constraint firstItem="ZEW-2e-u9x" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jAD-Ic-5NU"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.5" y="374.5"/>
+            <point key="canvasLocation" x="52" y="373.76311844077964"/>
         </scene>
     </scenes>
     <resources>

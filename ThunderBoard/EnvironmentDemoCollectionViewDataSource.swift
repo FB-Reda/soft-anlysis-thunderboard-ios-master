@@ -32,7 +32,7 @@ class EnvironmentDemoCollectionViewDataSource : NSObject {
     fileprivate static let capabilityOrder: [DeviceCapability] = [
         //        .temperature,       .humidity,
         .ambientLight,      .uvIndex,
-        //        .airPressure,       .soundLevel,
+         //       .airPressure,       .soundLevel,
         .airQualityCO2,     .airQualityVOC
         //.hallEffectFieldStrength, .hallEffectState
     ]

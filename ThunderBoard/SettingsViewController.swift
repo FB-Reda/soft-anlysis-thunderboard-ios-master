@@ -11,6 +11,7 @@ class SettingsViewController: UITableViewController {
     
     fileprivate enum Sections: Int {
         case personalInfo
+        case doctorInfo
         case preferences
     }
     
@@ -19,6 +20,10 @@ class SettingsViewController: UITableViewController {
     @IBOutlet weak var phoneLabel: StyledLabel!
     @IBOutlet weak var emailLabel: StyledLabel!
 
+    @IBOutlet weak var drnameLabel: StyledLabel!
+    @IBOutlet weak var dremailLabel: StyledLabel!
+    @IBOutlet weak var drphoneLabel: StyledLabel!
+    
     @IBOutlet weak var measurementsLabel: StyledLabel!
     @IBOutlet weak var measurementsControl: UISegmentedControl!
     
@@ -36,6 +41,7 @@ class SettingsViewController: UITableViewController {
     fileprivate let notificationsSegue           = "notificationsSegue"
     fileprivate let beaconEnabledText            = "ON"
     fileprivate let beaconDisabledText           = "OFF"
+    fileprivate let doctorInfoTitleText          = "DOCTOR INFO" //Franco Added this
     fileprivate let personalInfoTitleText        = "PERSONAL INFO"
     fileprivate let preferencesTitleText         = "PREFERENCES"
     fileprivate let editLabelText                = "Edit"
@@ -48,7 +54,10 @@ class SettingsViewController: UITableViewController {
     fileprivate let emptyEmailText               = "Email"
     fileprivate let emptyPhoneText               = "Phone"
     fileprivate let versionText                  = "Version "
-    fileprivate let copyrightText                = "| © Silicon Labs 2016"
+    fileprivate let emptyDocNameText                = "Dr. Name"       //Us
+    fileprivate let emptyDocEmailText               = "Dr. Email"      //Us
+    fileprivate let emptyDocPhoneText               = "Dr. Phone"      //Us
+    //fileprivate let copyrightText                = "| © Silicon Labs 2016"
 
     override func viewDidLoad() {
         setupAppearance()
@@ -56,6 +65,7 @@ class SettingsViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         populatePersonalInfoFields()
+        populateDrInfoFields()
         updateMeasurementsControl()
         updateTemperatureControl()
         updateMotionModelControl()
@@ -100,13 +110,16 @@ class SettingsViewController: UITableViewController {
         let headerView = UITableViewHeaderFooterView()
         let contentView = headerView.contentView
         
-        contentView.backgroundColor = StyleColor.lightGray
+        contentView.backgroundColor = StyleColor.terbiumGreen
 
         switch Sections(rawValue: section)! {
         case .personalInfo:
             setupSectionTitle(personalInfoTitleText, contentView: contentView)
             setupEditLabel(contentView)
-        
+        case .doctorInfo:
+            setupSectionTitle(personalInfoTitleText, contentView: contentView)
+            setupEditLabel(contentView)
+            
         case .preferences:
             setupSectionTitle(preferencesTitleText, contentView: contentView)
         }
@@ -202,7 +215,7 @@ class SettingsViewController: UITableViewController {
         
         let version = UIApplication.shared.tb_version
         let build   = UIApplication.shared.tb_buildNumber
-        let footerText  = "\(versionText) \(version) (\(build)) \(copyrightText)"
+        let footerText  = "\(versionText) \(version) (\(build))" //\(copyrightText)"
         footerLabel.tb_setText(footerText, style: StyleText.subtitle1)
         contentView.addSubview(footerLabel)
         tableView.tableFooterView = footerView
@@ -330,6 +343,25 @@ class SettingsViewController: UITableViewController {
             emailLabel.tb_setText(emptyEmailText, style: StyleText.main1.tweakColorAlpha(0.5))
         }
     }
+    
+    fileprivate func populateDrInfoFields() {
+        if let drname = settings.userName {
+            drnameLabel.tb_setText(drname, style: StyleText.main1.tweakColorAlpha(1.0))
+        } else {
+            drnameLabel.tb_setText(emptyNameText, style: StyleText.main1.tweakColorAlpha(0.5))
+        }
+        if let drphone = settings.userPhone {
+            drphoneLabel.tb_setText(drphone, style: StyleText.main1.tweakColorAlpha(1.0))
+        } else {
+            drphoneLabel.tb_setText(emptyPhoneText, style: StyleText.main1.tweakColorAlpha(0.5))
+        }
+        if let dremail = settings.userEmail {
+            dremailLabel.tb_setText(dremail, style: StyleText.main1.tweakColorAlpha(1.0))
+        } else {
+            dremailLabel.tb_setText(emptyEmailText, style: StyleText.main1.tweakColorAlpha(0.5))
+        }
+    }
+
     
     fileprivate func updateMeasurementsControl() {
         let measurementUnits = settings.measurement
