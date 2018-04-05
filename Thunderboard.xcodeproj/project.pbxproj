@@ -148,6 +148,8 @@
 		DFF425881BF5322A00B087F0 /* PersonalInfoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF425871BF5322A00B087F0 /* PersonalInfoTableCell.swift */; };
 		DFF4FEA81BC448BC00EE8BD7 /* CBCharacteristicExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF4FEA71BC448BC00EE8BD7 /* CBCharacteristicExtensions.swift */; };
 		DFFE9E801BF1A17400D7E1D3 /* NotificationDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE9E7F1BF1A17400D7E1D3 /* NotificationDevice.swift */; };
+		EAAADFBD2075B4290066DDB1 /* DocInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAADFBC2075B4290066DDB1 /* DocInfoViewController.swift */; };
+		EAAADFBF2075B4430066DDB1 /* DocInfoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAADFBE2075B4430066DDB1 /* DocInfoTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -308,6 +310,8 @@
 		DFF425871BF5322A00B087F0 /* PersonalInfoTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalInfoTableCell.swift; sourceTree = "<group>"; };
 		DFF4FEA71BC448BC00EE8BD7 /* CBCharacteristicExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CBCharacteristicExtensions.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		DFFE9E7F1BF1A17400D7E1D3 /* NotificationDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationDevice.swift; sourceTree = "<group>"; };
+		EAAADFBC2075B4290066DDB1 /* DocInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocInfoViewController.swift; sourceTree = "<group>"; };
+		EAAADFBE2075B4430066DDB1 /* DocInfoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocInfoTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -522,6 +526,8 @@
 				DF4087821BBC1A0A00A3F65F /* ThunderBoardSettings.swift */,
 				DF41037D1BDFCB7F0094E8EC /* SettingsNavigationController.swift */,
 				DF4723F91BDAD1550045C718 /* SettingsViewController.storyboard */,
+				EAAADFBC2075B4290066DDB1 /* DocInfoViewController.swift */,
+				EAAADFBE2075B4430066DDB1 /* DocInfoTableCell.swift */,
 				13169D8C1BBC2DD800B011BF /* SettingsViewController.swift */,
 				66CC65751CE3ADE600840D99 /* SettingsViewCell.swift */,
 				13169D8E1BBC2E0100B011BF /* PersonalInfoViewController.swift */,
@@ -915,6 +921,7 @@
 				DFD87E4D1D13104F00475F0A /* NSDataExtensions.swift in Sources */,
 				DF22858F1BBEF7D80021EFFF /* BleManager+DiscoveryFiltering.swift in Sources */,
 				DFB0CDA01BD5B4DF00A7EC34 /* MotionDemoView.swift in Sources */,
+				EAAADFBF2075B4430066DDB1 /* DocInfoTableCell.swift in Sources */,
 				DF3B7D7D1BC6E29500CF2D45 /* DemoConfiguration.swift in Sources */,
 				DF41037E1BDFCB7F0094E8EC /* SettingsNavigationController.swift in Sources */,
 				DF7A3AEB1BD1F0DF00DC441E /* SimulatedDevice.swift in Sources */,
@@ -959,6 +966,7 @@
 				DF7A9E4F1BD84B1200301047 /* DemoViewController.swift in Sources */,
 				6630EB6B1C7FAC6300599C78 /* SettingsPresenter.swift in Sources */,
 				DF4723DC1BD993C60045C718 /* EnvironmentDemoStreamingConnection.swift in Sources */,
+				EAAADFBD2075B4290066DDB1 /* DocInfoViewController.swift in Sources */,
 				DF4723F11BDA924F0045C718 /* StreamingViewController.swift in Sources */,
 				DF22858D1BBDD7460021EFFF /* Style.swift in Sources */,
 				66BF1EB01C77A037002DAAFC /* UrlFactory.swift in Sources */,

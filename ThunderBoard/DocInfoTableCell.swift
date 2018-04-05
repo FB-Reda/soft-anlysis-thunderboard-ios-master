@@ -1,21 +1,22 @@
 //
-//  PersonalInfoTableCell.swift
+//  DocInfoTableCell.swift
 //  Thunderboard
 //
-//  Copyright © 2016 Silicon Labs. All rights reserved.
+//  Created by Franco Reda on 4/4/18.
+//  Copyright © 2018 Silicon Labs. All rights reserved.
 //
 
 import UIKit
 
-class PersonalInfoTableCell : UITableViewCell, UITextFieldDelegate {
-
+class DocInfoTableCell : UITableViewCell, UITextFieldDelegate {
+    
     @IBOutlet var textField: UITextField?
     var drawSeparator: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupClearButton()
-
+        
         // cursor color
         textField?.tintColor = StyleColor.terbiumGreen
         textField?.delegate = self
@@ -38,7 +39,7 @@ class PersonalInfoTableCell : UITableViewCell, UITextFieldDelegate {
     }
     
     fileprivate func setupClearButton() {
-
+        
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 18, height: 18))
         let image = UIImage(named: "icn_settings_textfield_clear")!
         button.setImage(image, for: UIControlState())

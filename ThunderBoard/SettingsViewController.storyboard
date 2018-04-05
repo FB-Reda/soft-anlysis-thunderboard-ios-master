@@ -98,20 +98,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="139"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFa-NS-CfI" customClass="StyledLabel" customModule="ThunderBoard" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor's Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFa-NS-CfI" customClass="StyledLabel" customModule="ThunderBoard" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="18" width="345" height="21"/>
                                                     <accessibility key="accessibilityConfiguration" hint="Doctor Name" label="DocName"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tW2-ns-LJP" customClass="StyledLabel" customModule="ThunderBoard" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor's Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tW2-ns-LJP" customClass="StyledLabel" customModule="ThunderBoard" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="100.5" width="345" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgd-Sh-Lqv" customClass="StyledLabel" customModule="ThunderBoard" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor's Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgd-Sh-Lqv" customClass="StyledLabel" customModule="ThunderBoard" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="59" width="345" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -130,6 +130,9 @@
                                                 <constraint firstItem="aFa-NS-CfI" firstAttribute="top" secondItem="1UZ-nd-oP0" secondAttribute="top" constant="18" id="uJJ-Zu-0xl"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="I10-AF-fRc" kind="show" identifier="editDrInfoSegue" trigger="accessoryAction" id="wcA-4X-LNM"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -676,7 +679,162 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XGV-3E-FJr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1628.5" y="1977.5"/>
+            <point key="canvasLocation" x="1629" y="2060"/>
+        </scene>
+        <!--Edit Doctor Info-->
+        <scene sceneID="Tde-gQ-af5">
+            <objects>
+                <tableViewController title="Edit Doctor Info" id="I10-AF-fRc" userLabel="Edit Doctor Info" customClass="DocInfoViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" id="4NO-Tg-H6h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <sections>
+                            <tableViewSection id="CvH-c4-kI4">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="OiV-4B-D6t" customClass="DocInfoTableCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OiV-4B-D6t" id="u9e-UX-SdF">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sw3-jR-K2f" userLabel="Doc Name Text Field">
+                                                    <rect key="frame" x="85" y="19" width="270" height="19"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DOC NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBh-tI-Odw" userLabel="Doc Name Label" customClass="StyledLabel" customModule="ThunderBoard" customModuleProvider="target">
+                                                    <rect key="frame" x="15" y="17" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="Ch0-07-LC4"/>
+                                                        <constraint firstAttribute="width" constant="80" id="wCc-Yc-p0e"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.66666668650000005" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="wCc-Yc-p0e"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="sw3-jR-K2f" firstAttribute="leading" secondItem="BBh-tI-Odw" secondAttribute="trailing" constant="28" id="AOL-FG-1cC"/>
+                                                <constraint firstItem="sw3-jR-K2f" firstAttribute="baseline" secondItem="BBh-tI-Odw" secondAttribute="baseline" id="MGX-dF-32P"/>
+                                                <constraint firstItem="BBh-tI-Odw" firstAttribute="centerY" secondItem="u9e-UX-SdF" secondAttribute="centerY" id="mD2-Wi-aHJ"/>
+                                                <constraint firstItem="BBh-tI-Odw" firstAttribute="leading" secondItem="u9e-UX-SdF" secondAttribute="leading" constant="15" id="v8P-I0-1po"/>
+                                                <constraint firstAttribute="trailing" secondItem="sw3-jR-K2f" secondAttribute="trailing" constant="20" id="wHm-V4-Bi7"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="textField" destination="sw3-jR-K2f" id="S97-vS-Hse"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="X96-cq-9Uj" customClass="DocInfoTableCell">
+                                        <rect key="frame" x="0.0" y="54" width="375" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X96-cq-9Uj" id="Tzw-23-2wc">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nCD-7S-9OH" userLabel="Doc Email Text Field">
+                                                    <rect key="frame" x="85" y="19" width="270" height="19"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DOC EMAIL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2JN-bc-aaa" userLabel="Doc Email Label" customClass="StyledLabel" customModule="ThunderBoard" customModuleProvider="target">
+                                                    <rect key="frame" x="15" y="17" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="7zm-3s-MiV"/>
+                                                        <constraint firstAttribute="width" constant="42" id="hFn-nm-0YX"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.66666668650000005" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="7zm-3s-MiV"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="nCD-7S-9OH" firstAttribute="leading" secondItem="2JN-bc-aaa" secondAttribute="trailing" constant="28" id="6Rp-dx-aRz"/>
+                                                <constraint firstItem="2JN-bc-aaa" firstAttribute="centerY" secondItem="Tzw-23-2wc" secondAttribute="centerY" id="BWO-U8-gwS"/>
+                                                <constraint firstItem="2JN-bc-aaa" firstAttribute="leading" secondItem="Tzw-23-2wc" secondAttribute="leading" constant="15" id="Lur-Md-9tv"/>
+                                                <constraint firstAttribute="trailing" secondItem="nCD-7S-9OH" secondAttribute="trailing" constant="20" id="l1x-JA-OdA"/>
+                                                <constraint firstItem="nCD-7S-9OH" firstAttribute="baseline" secondItem="2JN-bc-aaa" secondAttribute="baseline" id="oZS-VE-sQs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="textField" destination="nCD-7S-9OH" id="uax-c2-H8R"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="uPB-kB-aQs" customClass="DocInfoTableCell" customModule="ThunderBoard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="108" width="375" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uPB-kB-aQs" id="FHZ-8Z-3sC">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Orf-z5-XHO" userLabel="Doc Phone Text Field">
+                                                    <rect key="frame" x="85" y="19" width="270" height="19"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DOC PHONE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpE-Kq-qK4" userLabel="Doc Phone Label" customClass="StyledLabel" customModule="ThunderBoard" customModuleProvider="target">
+                                                    <rect key="frame" x="15" y="17" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="fLC-jL-vhT"/>
+                                                        <constraint firstAttribute="width" constant="42" id="tUj-sO-2Hs"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.66666668650000005" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="fLC-jL-vhT"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Orf-z5-XHO" firstAttribute="leading" secondItem="tpE-Kq-qK4" secondAttribute="trailing" constant="28" id="Ta0-wW-4ZI"/>
+                                                <constraint firstItem="Orf-z5-XHO" firstAttribute="baseline" secondItem="tpE-Kq-qK4" secondAttribute="baseline" id="jZK-LR-gcS"/>
+                                                <constraint firstAttribute="trailing" secondItem="Orf-z5-XHO" secondAttribute="trailing" constant="20" id="s9D-7m-YAC"/>
+                                                <constraint firstItem="tpE-Kq-qK4" firstAttribute="centerY" secondItem="FHZ-8Z-3sC" secondAttribute="centerY" id="ttV-Cj-Ly3"/>
+                                                <constraint firstItem="tpE-Kq-qK4" firstAttribute="leading" secondItem="FHZ-8Z-3sC" secondAttribute="leading" constant="15" id="ya3-5E-WcG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="textField" destination="Orf-z5-XHO" id="IoF-Zb-LFe"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="I10-AF-fRc" id="XMo-jc-yuN"/>
+                            <outlet property="delegate" destination="I10-AF-fRc" id="eE0-v5-d8Z"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="2JN-bc-aaa" id="yM0-yL-56u"/>
+                        <outlet property="emailTextField" destination="nCD-7S-9OH" id="zSj-JR-3im"/>
+                        <outlet property="nameLabel" destination="BBh-tI-Odw" id="ovu-b7-4e4"/>
+                        <outlet property="nameTextField" destination="sw3-jR-K2f" id="MWq-ic-nvy"/>
+                        <outlet property="phoneLabel" destination="tpE-Kq-qK4" id="oCM-EP-3HC"/>
+                        <outlet property="phoneTextField" destination="Orf-z5-XHO" id="z31-JE-Ije"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hcm-J0-r7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2345.5" y="1977.5"/>
         </scene>
     </scenes>
     <resources>

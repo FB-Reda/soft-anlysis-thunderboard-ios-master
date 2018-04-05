@@ -114,6 +114,37 @@ class ThunderboardSettings: NSObject {
         }
     }
     
+    //MARK: Doc Name
+    fileprivate let docNameKey = "docName"
+    var docName: String? {
+        get {
+            return identityOrNilForEmpty(defaults.string(forKey: userNameKey))
+        }
+        set (newValue) {
+            defaults.setValue(newValue, forKey: docNameKey)
+        }
+    }
+    
+    fileprivate let docPhoneKey = "docPhone"
+    var docPhone: String? {
+        get {
+            return identityOrNilForEmpty(defaults.string(forKey: docPhoneKey))
+        }
+        set (newValue) {
+            defaults.setValue(newValue, forKey: docPhoneKey)
+        }
+    }
+    
+    fileprivate let docEmailKey = "docEmail"
+    var docEmail: String? {
+        get {
+            return identityOrNilForEmpty(defaults.string(forKey: docEmailKey))
+        }
+        set (newValue) {
+            defaults.setValue(newValue, forKey: docEmailKey)
+        }
+    }
+    
     fileprivate let notificationsKey = "beaconNotifications"
     var beaconNotifications: Bool {
         get {
