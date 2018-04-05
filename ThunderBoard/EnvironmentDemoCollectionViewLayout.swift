@@ -21,7 +21,7 @@ class EnvironmentDemoCollectionViewLayout : UICollectionViewLayout {
 
         if cache.isEmpty {
 
-            let numberOfColumns = 2
+            let numberOfColumns = 1 // was 2
             let columnWidth = contentWidth / CGFloat(numberOfColumns)
 
             var position = [
