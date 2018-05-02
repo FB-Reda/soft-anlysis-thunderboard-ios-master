@@ -15,8 +15,9 @@ class DocInfoViewController: UITableViewController {
     @IBOutlet weak var docPhoneLabel: StyledLabel!
     
     @IBOutlet weak var docNameTextField:   UITextField!
-    @IBOutlet weak var docPhoneTextField:  UITextField!
     @IBOutlet weak var docEmailTextField:  UITextField!
+    @IBOutlet weak var docPhoneTextField:  UITextField!
+    
     
     fileprivate let docNameText  = "DOC NAME"
     fileprivate let docEmailText = "DOC EMAIL"
@@ -31,25 +32,25 @@ class DocInfoViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        populateInputFields()
+        populateInputDocFields()
     }
     
-    func populateInputFields() {
-        self.docNameTextField.text  = settings.userName
-        self.docPhoneTextField.text = settings.userPhone
-        self.docEmailTextField.text = settings.userEmail
+    func populateInputDocFields() {
+        self.docNameTextField.text  = settings.docName
+        self.docPhoneTextField.text = settings.docPhone
+        self.docEmailTextField.text = settings.docEmail
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let infoCell = cell as? PersonalInfoTableCell else {
+        guard let dInfoCell = cell as? DocInfoTableCell else {
             fatalError("invalid cell class")
         }
         
-        infoCell.backgroundColor = StyleColor.white
-        infoCell.drawSeparator = !tableView.tb_isFirstCell(indexPath)
+        dInfoCell.backgroundColor = StyleColor.white
+        dInfoCell.drawSeparator = !tableView.tb_isFirstCell(indexPath)
         
         if tableView.tb_isLastCell(indexPath) {
-            infoCell.tb_applyCommonDropShadow()
+            dInfoCell.tb_applyCommonDropShadow()
         }
     }
     
@@ -77,7 +78,6 @@ class DocInfoViewController: UITableViewController {
         docNameTextField.textColor = StyleText.main1.color
         docNameTextField.attributedPlaceholder = StyleText.main1.tweakColorAlpha(0.5).attributedString("Doc Name")
         
-
         docEmailLabel.tb_setText(docEmailText, style: StyleText.subtitle2)
         docEmailTextField.textColor = StyleText.main1.color
         docEmailTextField.attributedPlaceholder = StyleText.main1.tweakColorAlpha(0.5).attributedString("Doc Email")

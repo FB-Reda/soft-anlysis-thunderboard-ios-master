@@ -43,6 +43,10 @@ class SettingsViewController: UITableViewController {
     fileprivate let beaconDisabledText           = "OFF"
     fileprivate let doctorInfoTitleText          = "DOCTOR INFO" //Franco Added this
     fileprivate let personalInfoTitleText        = "PERSONAL INFO"
+    
+    fileprivate let personalInfoSegue            = "editInfoSegue"
+    fileprivate let docInfoSegue                 = "editDocSegue"
+    
     fileprivate let preferencesTitleText         = "PREFERENCES"
     fileprivate let editLabelText                = "Edit"
     fileprivate let measurementsLabelText        = "Measurements"
@@ -54,9 +58,9 @@ class SettingsViewController: UITableViewController {
     fileprivate let emptyEmailText               = "Email"
     fileprivate let emptyPhoneText               = "Phone"
     fileprivate let versionText                  = "Version "
-    fileprivate let emptyDocNameText                = "Dr. Name"       //Us
-    fileprivate let emptyDocEmailText               = "Dr. Email"      //Us
-    fileprivate let emptyDocPhoneText               = "Dr. Phone"      //Us
+    fileprivate let emptyDocNameText             = "Dr. Name"       //Us
+    fileprivate let emptyDocEmailText            = "Dr. Email"      //Us
+    fileprivate let emptyDocPhoneText            = "Dr. Phone"      //Us
     //fileprivate let copyrightText                = "| © Silicon Labs 2016"
 
     override func viewDidLoad() {
@@ -115,11 +119,10 @@ class SettingsViewController: UITableViewController {
         switch Sections(rawValue: section)! {
         case .personalInfo:
             setupSectionTitle(personalInfoTitleText, contentView: contentView)
-            setupEditLabel(contentView)
+            setupEditLabel(contentView, segString: personalInfoSegue)
         case .doctorInfo:
-            setupSectionTitle(personalInfoTitleText, contentView: contentView)
-            setupEditLabel(contentView)
-            
+            setupSectionTitle(doctorInfoTitleText, contentView: contentView)
+            setupEditLabel(contentView, segString: docInfoSegue)
         case .preferences:
             setupSectionTitle(preferencesTitleText, contentView: contentView)
         }
@@ -162,17 +165,31 @@ class SettingsViewController: UITableViewController {
         )
     }
     
-    func editTapped() {
-        performSegue(withIdentifier: "editInfoSegue", sender: nil)
+    func editTappedPersonal() {
+        performSegue(withIdentifier: personalInfoSegue, sender: nil)
     }
     
-    fileprivate func setupEditLabel(_ contentView: UIView) {
+    func editTappedDoc(){
+        performSegue(withIdentifier: docInfoSegue, sender: nil)
+    }
+
+
+    
+    fileprivate func setupEditLabel(_ contentView: UIView, segString:String) {
         let editView = StyledLabel()
+        var tapGestureRecognizer: UITapGestureRecognizer!
+        
         contentView.addSubview(editView)
         
         editView.tb_setText(editLabelText, style: StyleText.header)
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(editTapped))
+        if(segString == personalInfoSegue){
+            tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(editTappedPersonal))
+        }
+        if(segString == docInfoSegue){
+            tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(editTappedDoc))
+        }
+        
         editView.addGestureRecognizer(tapGestureRecognizer)
         editView.isUserInteractionEnabled = true
         
@@ -254,7 +271,6 @@ class SettingsViewController: UITableViewController {
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         navigationController?.dismiss(animated: true, completion: nil)
-        
     }
     
     @IBAction func measurementsDidChange(_ sender: UISegmentedControl) {
@@ -345,20 +361,20 @@ class SettingsViewController: UITableViewController {
     }
     
     fileprivate func populateDrInfoFields() {
-        if let drname = settings.userName {
+        if let drname = settings.docName {
             drnameLabel.tb_setText(drname, style: StyleText.main1.tweakColorAlpha(1.0))
         } else {
-            drnameLabel.tb_setText(emptyNameText, style: StyleText.main1.tweakColorAlpha(0.5))
+            drnameLabel.tb_setText(emptyDocNameText, style: StyleText.main1.tweakColorAlpha(0.5))
         }
-        if let drphone = settings.userPhone {
+        if let drphone = settings.docPhone {
             drphoneLabel.tb_setText(drphone, style: StyleText.main1.tweakColorAlpha(1.0))
         } else {
-            drphoneLabel.tb_setText(emptyPhoneText, style: StyleText.main1.tweakColorAlpha(0.5))
+            drphoneLabel.tb_setText(emptyDocPhoneText, style: StyleText.main1.tweakColorAlpha(0.5))
         }
-        if let dremail = settings.userEmail {
+        if let dremail = settings.docEmail {
             dremailLabel.tb_setText(dremail, style: StyleText.main1.tweakColorAlpha(1.0))
         } else {
-            dremailLabel.tb_setText(emptyEmailText, style: StyleText.main1.tweakColorAlpha(0.5))
+            dremailLabel.tb_setText(emptyDocEmailText, style: StyleText.main1.tweakColorAlpha(0.5))
         }
     }
 

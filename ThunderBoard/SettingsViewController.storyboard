@@ -36,7 +36,7 @@
                         <sections>
                             <tableViewSection id="wvg-du-ed6">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="139" id="EcX-Zf-cGg" customClass="SettingsViewCell" customModule="ThunderBoard" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="personInfo" rowHeight="139" id="EcX-Zf-cGg" customClass="SettingsViewCell" customModule="ThunderBoard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="35" width="375" height="139"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EcX-Zf-cGg" id="49R-yd-DuR">
@@ -89,9 +89,9 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="I9l-je-PSR" userLabel="Doctor View Section">
+                            <tableViewSection id="I9l-je-PSR">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="139" id="7d9-fw-tYB" customClass="SettingsViewCell" customModule="ThunderBoard" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="doctorInfo" rowHeight="139" id="7d9-fw-tYB" customClass="SettingsViewCell" customModule="ThunderBoard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="210" width="375" height="139"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7d9-fw-tYB" id="1UZ-nd-oP0">
@@ -131,7 +131,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="I10-AF-fRc" kind="show" identifier="editDrInfoSegue" trigger="accessoryAction" id="wcA-4X-LNM"/>
+                                            <segue destination="I10-AF-fRc" kind="show" identifier="editDocSegue" id="sgs-yM-1XU"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -548,7 +548,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgc-5u-yuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2346" y="1169"/>
+            <point key="canvasLocation" x="2393" y="1170"/>
         </scene>
         <!--Beacon Notifications View Controller-->
         <scene sceneID="e7h-5U-0uU">
@@ -679,7 +679,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XGV-3E-FJr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1629" y="2060"/>
+            <point key="canvasLocation" x="1628" y="1977"/>
         </scene>
         <!--Edit Doctor Info-->
         <scene sceneID="Tde-gQ-af5">
@@ -729,7 +729,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="textField" destination="sw3-jR-K2f" id="S97-vS-Hse"/>
+                                            <outlet property="dTextField" destination="sw3-jR-K2f" id="3Sn-i1-QbD"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="X96-cq-9Uj" customClass="DocInfoTableCell">
@@ -769,7 +769,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="textField" destination="nCD-7S-9OH" id="uax-c2-H8R"/>
+                                            <outlet property="dTextField" destination="nCD-7S-9OH" id="JgE-R6-Ubj"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="uPB-kB-aQs" customClass="DocInfoTableCell" customModule="ThunderBoard" customModuleProvider="target">
@@ -809,7 +809,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="textField" destination="Orf-z5-XHO" id="IoF-Zb-LFe"/>
+                                            <outlet property="dTextField" destination="Orf-z5-XHO" id="GtR-3J-j6c"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -824,17 +824,17 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="emailLabel" destination="2JN-bc-aaa" id="yM0-yL-56u"/>
-                        <outlet property="emailTextField" destination="nCD-7S-9OH" id="zSj-JR-3im"/>
-                        <outlet property="nameLabel" destination="BBh-tI-Odw" id="ovu-b7-4e4"/>
-                        <outlet property="nameTextField" destination="sw3-jR-K2f" id="MWq-ic-nvy"/>
-                        <outlet property="phoneLabel" destination="tpE-Kq-qK4" id="oCM-EP-3HC"/>
-                        <outlet property="phoneTextField" destination="Orf-z5-XHO" id="z31-JE-Ije"/>
+                        <outlet property="docEmailLabel" destination="2JN-bc-aaa" id="Z59-Ux-MXm"/>
+                        <outlet property="docEmailTextField" destination="nCD-7S-9OH" id="ktr-Bx-gvD"/>
+                        <outlet property="docNameLabel" destination="BBh-tI-Odw" id="Pqh-nL-dQN"/>
+                        <outlet property="docNameTextField" destination="sw3-jR-K2f" id="2hn-J0-F5X"/>
+                        <outlet property="docPhoneLabel" destination="tpE-Kq-qK4" id="XcR-7L-rS1"/>
+                        <outlet property="docPhoneTextField" destination="Orf-z5-XHO" id="gTc-AD-A2A"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hcm-J0-r7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2345.5" y="1977.5"/>
+            <point key="canvasLocation" x="2345" y="1977"/>
         </scene>
     </scenes>
     <resources>

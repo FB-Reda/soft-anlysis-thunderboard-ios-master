@@ -206,6 +206,9 @@ class ThunderboardSettings: NSObject {
             self.userTitleKey       : "",
             self.userPhoneKey       : "",
             self.userEmailKey       : "",
+            self.docNameKey         : "",
+            self.docPhoneKey        : "",
+            self.docEmailKey        : "",
             self.motionDemoModelKey : MotionDemoModel.board.rawValue,
         ] as [String : Any]
         

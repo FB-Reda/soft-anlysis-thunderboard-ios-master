@@ -10,7 +10,7 @@ import UIKit
 
 class DocInfoTableCell : UITableViewCell, UITextFieldDelegate {
     
-    @IBOutlet var textField: UITextField?
+    @IBOutlet var dTextField: UITextField?
     var drawSeparator: Bool = false
     
     override func awakeFromNib() {
@@ -18,10 +18,10 @@ class DocInfoTableCell : UITableViewCell, UITextFieldDelegate {
         setupClearButton()
         
         // cursor color
-        textField?.tintColor = StyleColor.terbiumGreen
-        textField?.delegate = self
+        dTextField?.tintColor = StyleColor.terbiumGreen
+        dTextField?.delegate = self
         
-        log.debug("\(String(describing: textField?.subviews))")
+        log.debug("\(String(describing: dTextField?.subviews))")
     }
     
     override func draw(_ rect: CGRect) {
@@ -45,15 +45,15 @@ class DocInfoTableCell : UITableViewCell, UITextFieldDelegate {
         button.setImage(image, for: UIControlState())
         button.addTarget(self, action: #selector(clearButtonTapped), for: .touchUpInside)
         
-        textField?.rightViewMode = .whileEditing
-        textField?.rightView = button
+        dTextField?.rightViewMode = .whileEditing
+        dTextField?.rightView = button
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        log.debug("\(textField.subviews)")
+    func textFieldDidBeginEditing(_ dTextField: UITextField) {
+        log.debug("\(dTextField.subviews)")
     }
     
     @objc func clearButtonTapped() {
-        textField?.text = ""
+        dTextField?.text = ""
     }
 }
