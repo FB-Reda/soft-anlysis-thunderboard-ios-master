@@ -18,7 +18,6 @@ class DocInfoViewController: UITableViewController {
     @IBOutlet weak var docEmailTextField:  UITextField!
     @IBOutlet weak var docPhoneTextField:  UITextField!
     
-    
     fileprivate let docNameText  = "DOC NAME"
     fileprivate let docEmailText = "DOC EMAIL"
     fileprivate let docPhoneText = "DOC PHONE"

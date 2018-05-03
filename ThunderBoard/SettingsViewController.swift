@@ -20,9 +20,9 @@ class SettingsViewController: UITableViewController {
     @IBOutlet weak var phoneLabel: StyledLabel!
     @IBOutlet weak var emailLabel: StyledLabel!
 
-    @IBOutlet weak var drnameLabel: StyledLabel!
-    @IBOutlet weak var dremailLabel: StyledLabel!
-    @IBOutlet weak var drphoneLabel: StyledLabel!
+    @IBOutlet weak var docNameLabel: StyledLabel!
+    @IBOutlet weak var docEmailLabel: StyledLabel!
+    @IBOutlet weak var docPhoneLabel: StyledLabel!
     
     @IBOutlet weak var measurementsLabel: StyledLabel!
     @IBOutlet weak var measurementsControl: UISegmentedControl!
@@ -39,28 +39,30 @@ class SettingsViewController: UITableViewController {
     weak var notificationManager: NotificationManager?
     fileprivate let settings = ThunderboardSettings()
     fileprivate let notificationsSegue           = "notificationsSegue"
+    fileprivate let personalInfoSegue            = "editInfoSegue"
+    fileprivate let docInfoSegue                 = "editDocSegue"
+    
     fileprivate let beaconEnabledText            = "ON"
     fileprivate let beaconDisabledText           = "OFF"
     fileprivate let doctorInfoTitleText          = "DOCTOR INFO" //Franco Added this
     fileprivate let personalInfoTitleText        = "PERSONAL INFO"
-    
-    fileprivate let personalInfoSegue            = "editInfoSegue"
-    fileprivate let docInfoSegue                 = "editDocSegue"
-    
     fileprivate let preferencesTitleText         = "PREFERENCES"
+    
     fileprivate let editLabelText                = "Edit"
     fileprivate let measurementsLabelText        = "Measurements"
     fileprivate let temperatureLabelText         = "Temperature"
     fileprivate let motionModelText              = "Motion Demo Model"
     fileprivate let beaconNotificationsLabelText = "Beacon Notifications"
+    
     fileprivate let emptyNameText                = "Name"
     fileprivate let emptyTitleText               = "Title"
     fileprivate let emptyEmailText               = "Email"
     fileprivate let emptyPhoneText               = "Phone"
     fileprivate let versionText                  = "Version "
-    fileprivate let emptyDocNameText             = "Dr. Name"       //Us
-    fileprivate let emptyDocEmailText            = "Dr. Email"      //Us
-    fileprivate let emptyDocPhoneText            = "Dr. Phone"      //Us
+    
+    fileprivate let emptyDocNameText             = "Dr.Name"       //Us
+    fileprivate let emptyDocEmailText            = "Dr.Email"      //Us
+    fileprivate let emptyDocPhoneText            = "Dr.Phone"      //Us
     //fileprivate let copyrightText                = "| © Silicon Labs 2016"
 
     override func viewDidLoad() {
@@ -69,7 +71,7 @@ class SettingsViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         populatePersonalInfoFields()
-        populateDrInfoFields()
+        populateDocInfoFields()
         updateMeasurementsControl()
         updateTemperatureControl()
         updateMotionModelControl()
@@ -172,7 +174,6 @@ class SettingsViewController: UITableViewController {
     func editTappedDoc(){
         performSegue(withIdentifier: docInfoSegue, sender: nil)
     }
-
 
     
     fileprivate func setupEditLabel(_ contentView: UIView, segString:String) {
@@ -360,21 +361,21 @@ class SettingsViewController: UITableViewController {
         }
     }
     
-    fileprivate func populateDrInfoFields() {
-        if let drname = settings.docName {
-            drnameLabel.tb_setText(drname, style: StyleText.main1.tweakColorAlpha(1.0))
+    fileprivate func populateDocInfoFields() {
+        if let docName = settings.docName {
+            docNameLabel.tb_setText(docName, style: StyleText.main1.tweakColorAlpha(1.0))
         } else {
-            drnameLabel.tb_setText(emptyDocNameText, style: StyleText.main1.tweakColorAlpha(0.5))
+            docNameLabel.tb_setText(emptyDocNameText, style: StyleText.main1.tweakColorAlpha(0.5))
         }
-        if let drphone = settings.docPhone {
-            drphoneLabel.tb_setText(drphone, style: StyleText.main1.tweakColorAlpha(1.0))
+        if let docPhone = settings.docPhone {
+            docPhoneLabel.tb_setText(docPhone, style: StyleText.main1.tweakColorAlpha(1.0))
         } else {
-            drphoneLabel.tb_setText(emptyDocPhoneText, style: StyleText.main1.tweakColorAlpha(0.5))
+            docPhoneLabel.tb_setText(emptyDocPhoneText, style: StyleText.main1.tweakColorAlpha(0.5))
         }
-        if let dremail = settings.docEmail {
-            dremailLabel.tb_setText(dremail, style: StyleText.main1.tweakColorAlpha(1.0))
+        if let docEmail = settings.docEmail {
+            docEmailLabel.tb_setText(docEmail, style: StyleText.main1.tweakColorAlpha(1.0))
         } else {
-            dremailLabel.tb_setText(emptyDocEmailText, style: StyleText.main1.tweakColorAlpha(0.5))
+            docEmailLabel.tb_setText(emptyDocEmailText, style: StyleText.main1.tweakColorAlpha(0.5))
         }
     }
 

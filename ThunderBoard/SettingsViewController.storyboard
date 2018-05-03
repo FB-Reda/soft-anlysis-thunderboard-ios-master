@@ -100,19 +100,18 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor's Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFa-NS-CfI" customClass="StyledLabel" customModule="ThunderBoard" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="18" width="345" height="21"/>
-                                                    <accessibility key="accessibilityConfiguration" hint="Doctor Name" label="DocName"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor's Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tW2-ns-LJP" customClass="StyledLabel" customModule="ThunderBoard" customModuleProvider="target">
-                                                    <rect key="frame" x="15" y="100.5" width="345" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor's Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgd-Sh-Lqv" customClass="StyledLabel" customModule="ThunderBoard" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="59" width="345" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor's Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tW2-ns-LJP" customClass="StyledLabel" customModule="ThunderBoard" customModuleProvider="target">
+                                                    <rect key="frame" x="15" y="100.5" width="345" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -329,9 +328,9 @@
                     <connections>
                         <outlet property="beaconNotificationsLabel" destination="7g5-OS-OUU" id="UBG-zR-CCm"/>
                         <outlet property="beaconNotificationsStateLabel" destination="lgy-rZ-cQp" id="QWM-dt-fMU"/>
-                        <outlet property="dremailLabel" destination="Wgd-Sh-Lqv" id="Z61-Ph-ZOS"/>
-                        <outlet property="drnameLabel" destination="aFa-NS-CfI" id="07q-du-Eu7"/>
-                        <outlet property="drphoneLabel" destination="tW2-ns-LJP" id="u1I-Gc-3rp"/>
+                        <outlet property="docEmailLabel" destination="Wgd-Sh-Lqv" id="Fqb-Rc-6w9"/>
+                        <outlet property="docNameLabel" destination="aFa-NS-CfI" id="Pmb-V6-T91"/>
+                        <outlet property="docPhoneLabel" destination="tW2-ns-LJP" id="cas-hw-hPd"/>
                         <outlet property="emailLabel" destination="wAH-ay-XL2" id="OQa-2R-puL"/>
                         <outlet property="measurementsControl" destination="h07-R0-byY" id="EuX-sO-lzf"/>
                         <outlet property="measurementsLabel" destination="Qeg-Pa-bNG" id="vZY-5I-RGD"/>
@@ -548,7 +547,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgc-5u-yuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2393" y="1170"/>
+            <point key="canvasLocation" x="2392.8000000000002" y="1169.865067466267"/>
         </scene>
         <!--Beacon Notifications View Controller-->
         <scene sceneID="e7h-5U-0uU">

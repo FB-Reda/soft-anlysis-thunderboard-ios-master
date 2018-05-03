@@ -6,17 +6,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ThunderBoard/SettingsViewController.swift"
-            timestampString = "546915884.548483"
+            filePath = "ThunderBoard/PersonalInfoViewController.swift"
+            timestampString = "546920361.956636"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
-            landmarkName = "motionModelDidChange(_:)"
-            landmarkType = "7">
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "PersonalInfoViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ThunderBoard.PersonalInfoViewController.init(style: __C.UITableViewStyle) -&gt; ThunderBoard.PersonalInfoViewController"
+                  moduleName = "Thunderboard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Becket/GitHub/soft-anlysis-thunderboard-ios-master/ThunderBoard/PersonalInfoViewController.swift"
+                  timestampString = "546920296.3518749"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "1170">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ThunderBoard.PersonalInfoViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; ThunderBoard.PersonalInfoViewController"
+                  moduleName = "Thunderboard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Becket/GitHub/soft-anlysis-thunderboard-ios-master/ThunderBoard/PersonalInfoViewController.swift"
+                  timestampString = "546920296.353436"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "1137">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ThunderBoard.PersonalInfoViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;ThunderBoard.PersonalInfoViewController&gt;"
+                  moduleName = "Thunderboard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Becket/GitHub/soft-anlysis-thunderboard-ios-master/ThunderBoard/PersonalInfoViewController.swift"
+                  timestampString = "546920296.355093"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "1056">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
